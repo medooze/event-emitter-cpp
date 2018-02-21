@@ -25,7 +25,7 @@ private:
 	class Listener : public BaseListener
 	{
 	public:
-		explicit Listener(std::function<void (Type&)> callback) 
+		explicit Listener(const std::function<void (Type&)> &callback) 
 		{
 			 this->callback = callback; 
 		}
@@ -47,7 +47,7 @@ public:
 	}
 	
 	template<typename Type>
-	EventEmitter& on(std::function<void (Type&)> callback) 
+	EventEmitter& on(const std::function<void (Type&)> &callback) 
 	{
 		listeners[typeid(Type)] = std::unique_ptr<BaseListener>(new Listener<Type>(callback));
 		return *this;
