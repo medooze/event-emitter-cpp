@@ -32,7 +32,13 @@ private:
 		Listener(const Listener&) = delete;
 		Listener& operator=(const Listener&) = delete;
 		virtual ~Listener(){}
-		void emit(Type& type)  { callback(type); }		 
+		void emit(Type& type)  
+		{
+			try {
+				callback(type);
+			} catch (...) {
+			}
+		}
 	private:
 		std::function<void (Type&)> callback;
 	};
