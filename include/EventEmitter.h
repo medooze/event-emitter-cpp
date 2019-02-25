@@ -4,7 +4,7 @@
 #include <map>
 #include <functional>
 #include <memory>
-#include <typeindex>
+#include <typeinfo>
 
 namespace medooze 
 {
