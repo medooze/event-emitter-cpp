@@ -5,6 +5,7 @@
 #include <functional>
 #include <memory>
 #include <typeinfo>
+#include <typeindex>
 
 namespace medooze 
 {
