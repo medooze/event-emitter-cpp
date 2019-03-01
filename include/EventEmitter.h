@@ -48,9 +48,9 @@ public:
 	template<typename Type>
 	void emit(Type& type) 
 	{
-		auto& listener = listeners[typeid(type)];
-		if (listener)
-			static_cast<Listener<Type>*>(listener.get())->emit(type);
+		auto it = listeners.find(typeid(type));
+		if (it!=listeners.end())
+			static_cast<Listener<Type>*>(it->second.get())->emit(type);
 	}
 	
 	template<typename Type>
